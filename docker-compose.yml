@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  dyndb:
+    build: ./docker/
+    environment:
+      AWS_ACCESS_KEY_ID: akey
+      AWS_SECRET_ACCESS_KEY: skey
+      TABLE_NAME:
+      ITEM_NAME:
+    ports:
+    - "8000:8000"
+    volumes:
+      - ./docker/volumes:/src
