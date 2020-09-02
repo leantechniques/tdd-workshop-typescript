@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "node node_modules/ts-node/dist/bin.js ./server.ts",
-    "test": "jest",
+    "test": "jest --testPathPattern=src",
+    "test:integration": "jest --testPathPattern=test/integration",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
