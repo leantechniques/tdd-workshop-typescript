@@ -3,7 +3,7 @@ export interface Coin {
   symbol: string;
   name: string;
   nameid: string;
-  rank: 1;
+  rank: number;
   price_usd: string;
   percent_change_24h: string;
   percent_change_1h: string;
