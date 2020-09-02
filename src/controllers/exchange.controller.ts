@@ -1,7 +1,8 @@
-import {app} from '../app';
+import express from 'express';
+const router = express.Router();
 
-app.post('/exchange/buy', (req, res) => {});
+router.post('/buy', (req, res) => {});
 
-app.post('/exchange/sell', (req, res) => {});
+router.post('/sell', (req, res) => {});
 
-export const exchange = app;
+export const exchange = router;

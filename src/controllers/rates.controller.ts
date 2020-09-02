@@ -1,13 +1,14 @@
-import {app} from '../app';
+import express from 'express';
 import { getRate } from '../services/rates.service';
 import { CoinType } from '../models/coin';
+const router = express.Router();
 
-app.get('/rates', (req, res) => {});
+router.get('', (req, res) => {});
 
-app.get('/rates/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const {params} = req;
   const rate = getRate(CoinType[params.id])
   res.send(rate)
 });
 
-export const rates = app;
+export const rates = router;
