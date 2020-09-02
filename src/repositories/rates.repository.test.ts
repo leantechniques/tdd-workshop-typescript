@@ -30,7 +30,7 @@ describe('rates repository', () => {
       data: [etherium],
     });
 
-    const actual = await getCoin(CoinType.ETHERIUM);
+    const actual = await getCoin(80);
 
     expect(actual).toEqual(etherium);
     expect(mockGet).toHaveBeenCalledWith(

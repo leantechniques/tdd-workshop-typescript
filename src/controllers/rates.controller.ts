@@ -1,13 +1,16 @@
 import express from 'express';
-import { getRate } from '../services/rates.service';
+import { getRate, getRates } from '../services/rates.service';
 import { CoinType } from '../models/coin';
 const router = express.Router();
 
-router.get('', (req, res) => {});
+router.get('', async (req, res) => {
+  const rates = await getRates();
+  res.send(rates);
+});
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   const {params} = req;
-  const rate = getRate(CoinType[params.id])
+  const rate = await getRate(Number(params.id))
   res.send(rate)
 });
 

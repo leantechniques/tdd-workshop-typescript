@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CoinType, Coin } from "models/coin";
+import { CoinType, Coin } from "../models/coin";
 
 export async function getCoin(coinType: CoinType): Promise<Coin> {
   const {data} = await axios.get(`https://api.coinlore.net/api/ticker/?id=${coinType}`);
