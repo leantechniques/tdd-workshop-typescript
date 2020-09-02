@@ -6,8 +6,8 @@ services:
     environment:
       AWS_ACCESS_KEY_ID: akey
       AWS_SECRET_ACCESS_KEY: skey
-      TABLE_NAME:
-      ITEM_NAME:
+      TABLE_NAME: User
+      ITEM_NAME: User1
     ports:
     - "8000:8000"
     volumes:

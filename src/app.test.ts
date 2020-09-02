@@ -5,7 +5,3 @@ it("should create health endpoint", async () => {
     const response = await request(app).get("/health");
     expect(response.statusCode).toBe(200);
 });
-
-it("should create rates endpont", async () => {
-    
-})

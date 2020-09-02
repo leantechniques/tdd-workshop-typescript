@@ -1,4 +1,7 @@
+import { CoinType } from "./coin";
+
 export interface Rate {
-  BTC: number,
-  ETH: number
+  id: CoinType,
+  name: string,
+  price: number
 }

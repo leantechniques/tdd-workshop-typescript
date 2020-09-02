@@ -3,8 +3,8 @@ set -euo pipefail
 set -x
 
 set -a
-: ${TABLE_NAME:=OtherTable} \
-  ${ITEM_NAME:=OtherItem}
+: ${TABLE_NAME:=Users} \
+  ${ITEM_NAME:=User1}
 set +a
 
 echo "$@"
@@ -12,8 +12,8 @@ create_table () {
   aws dynamodb create-table \
     --endpoint-url http://localhost:8000 \
     --table-name ${TABLE_NAME} \
-    --attribute-definitions AttributeName=Name,AttributeType=S \
-    --key-schema AttributeName=Name,KeyType=HASH \
+    --attribute-definitions AttributeName=id,AttributeType=N \
+    --key-schema AttributeName=id,KeyType=HASH \
     --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
 }
   
@@ -22,9 +22,33 @@ aws dynamodb put-item \
 --endpoint-url http://localhost:8000 \
 --table-name ${TABLE_NAME} \
 --item '{
-  "Name": {"S": "Green tea"},
-  "Pros": {"SS": ["Delicious", "Supposedly healthy"]},
-  "Cons": {"SS": ["Sometimes too bitter"]}
+  "id": {"N": "1"},
+  "name": {"S": "Dr. Evil"},
+  "cash": {"N": "1000000"},
+  "holdings": {"L": 
+    [
+      {
+        "M": {
+          "coinId": {
+            "N": "80"
+          },
+          "amount": {
+            "N": "100"
+          }
+        }
+      },
+      {
+        "M": {
+          "coinId": {
+            "N": "90"
+          },
+          "amount": {
+            "N": "200"
+          }
+        }
+      }
+    ]
+  }
 }'
 }
 

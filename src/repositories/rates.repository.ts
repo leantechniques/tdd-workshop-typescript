@@ -1,7 +1,6 @@
 import axios from "axios";
-import { Rate } from "models/rate";
+import { CoinType, Coin } from "models/coin";
 
+function getCoin(coinType: CoinType): Coin {
 
-function getCoinRate(id): Rate {
-  
 }
