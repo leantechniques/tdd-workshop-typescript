@@ -7,3 +7,6 @@ export async function getCoin(coinType: CoinType): Promise<Coin> {
 }
 
 //todo: getCoins
+export async function getCoins(): Promise<Coin[]> {
+  return []
+}

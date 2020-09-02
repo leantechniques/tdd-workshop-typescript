@@ -1,6 +1,5 @@
 import express from 'express';
 import { getRate, getRates } from '../services/rates.service';
-import { CoinType } from '../models/coin';
 const router = express.Router();
 
 router.get('', async (req, res) => {
