@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { getCoin } from './rates.repository';
-import { CoinType, Coin } from '../models/coin';
+import {getCoin} from './rates.repository';
+import {CoinType, Coin} from '../models/coin';
 
 jest.mock('axios');
 const mockGet = axios.get as jest.Mock;
@@ -19,22 +19,22 @@ describe('rates repository', () => {
       percent_change_7d: '21.78',
       price_btc: '0.040200',
       market_cap_usd: '54071000495.58',
-      volume24: "14616113162.8728351593017578125",
-      volume24_native: "10520744166.1159725189208984375",
+      volume24: '14616113162.8728351593017578125',
+      volume24_native: '10520744166.1159725189208984375',
       csupply: '112397945.00',
       tsupply: '112397945',
       msupply: '',
     };
 
     mockGet.mockResolvedValueOnce({
-      data: [
-        etherium
-      ],
+      data: [etherium],
     });
 
     const actual = await getCoin(CoinType.ETHERIUM);
-    
+
     expect(actual).toEqual(etherium);
-    expect(mockGet).toHaveBeenCalledWith("https://api.coinlore.net/api/ticker/?id=80")
+    expect(mockGet).toHaveBeenCalledWith(
+      'https://api.coinlore.net/api/ticker/?id=80'
+    );
   });
 });
